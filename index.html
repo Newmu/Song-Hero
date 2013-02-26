@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <title>Visulizer</title>
+	    <script src="http://code.jquery.com/jquery-latest.js"></script>
+	    <script src="game.js"></script>
+	    <link rel='stylesheet' href='game.css'/>
+	    <script type="text/javascript">
+			// requestAnim shim layer by Paul Irish
+			window.requestAnimFrame = (function(){
+			  return  window.requestAnimationFrame       || 
+			          window.webkitRequestAnimationFrame || 
+			          window.mozRequestAnimationFrame    || 
+			          window.oRequestAnimationFrame      || 
+			          window.msRequestAnimationFrame     || 
+			          function(callback, element){
+			          	window.setTimeout(callback, 1000 / 60);
+			          };
+			})();
+		</script>
+	</head>
+
+	<body>
+		<canvas id="canvas"></canvas>
+	</body>
+</html>

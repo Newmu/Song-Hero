@@ -1,0 +1,12 @@
+body{
+	background-color:rgb(30,35,40);
+	overflow:hidden;
+}
+
+#canvas{
+	position:absolute;
+	left:50%;
+	margin-left:-225px;
+/*	top:50%;
+	margin-top:-364px;*/
+}

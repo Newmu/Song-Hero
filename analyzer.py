@@ -29,6 +29,7 @@ def normHann(hann):
 	return hann
 
 # Extra stuff not relevant for projectdef getBarkVecs(barks,uniqueBarks,powerData):
+def barkVects(powerData,uniqueBarks):
 	barkVecs = []
 	for bark in uniqueBarks:
 	    barkVecs.append(powerData[barks == bark].mean())

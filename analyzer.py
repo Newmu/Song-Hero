@@ -150,7 +150,7 @@ def chromaSegments(audio,Fs,segments):
 
 maxFloat = sys.float_info.max
 start = time.clock()
-audio = sciowav.read("lookIntoTheAir.wav")
+audio = sciowav.read("digitalLove.wav")
 npA = audio[1][:,0]
 print npA.shape
 length = npA.shape[0]/44100.0
@@ -177,3 +177,4 @@ for segment,key in zip(segments,keysToPlay):
 # Yeah, I copy and pasted at this point...
 # Shows up as trackInfo in game.js
 print json.dumps(trackData)
+print time.clock()-start

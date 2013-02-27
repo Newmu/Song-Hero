@@ -94,7 +94,7 @@ function checkAccuracy(code,time,trackInfo){
   }
   var track = trackInfo[index][2]
   var trackPress = codeToTrack[code];
-  console.log(min,track,trackPress)
+  // console.log(min,track,trackPress)
   if ((track == trackPress) && min < 0.1){
     return true;
   }
@@ -171,8 +171,6 @@ $(function () {
 
     reader2.onload = function(e){
       var arrayBuffer = this.result;
-      console.log(arrayBuffer);
-      console.log('initSound called');
       aCtx = new webkitAudioContext();
       aCtx.decodeAudioData(arrayBuffer, function(buffer) {
         // audioBuffer is global to reuse the decoded audio later.
@@ -182,7 +180,7 @@ $(function () {
         console.log('Error decoding file', e);
       });
     }
-    
+
     reader.readAsBinaryString(this.files[0]);
     reader2.readAsArrayBuffer(this.files[0]);
   };

@@ -1,0 +1,19 @@
+extends layout
+
+block scripts
+  script(src='http://code.jquery.com/jquery-1.9.1.min.js')
+  script(src='/javascripts/jDataView.js')
+  script(src='/javascripts/binaryAjax.js')
+  script(src='/javascripts/id3.js')
+  script(src='/javascripts/songhero.js')
+  link(rel='stylesheet', href='/fonts/bebas-neue-fontfacekit/stylesheet.css')
+block content
+  div(style='height: 0px;width: 0px; overflow:hidden;')
+    form#imgForm
+      input#selectSong(type='file',name='files')
+  #selectSongUI.buttonUI
+    p.selectSongUIText Select a song to play
+  canvas(id='canvas')
+  #infoBox
+    #streak
+    #score

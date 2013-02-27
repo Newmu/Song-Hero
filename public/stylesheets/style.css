@@ -1,0 +1,116 @@
+body{
+	background-color:rgb(30,35,40);
+	overflow:hidden;
+	margin:0px;
+	padding:0px;
+}
+
+#canvas{
+	position:absolute;
+	left:50%;
+	margin-left:-225px;
+	top:0px;
+}
+
+#streak{
+	float:left;
+	height:inherit;
+	width:50px;
+	color:rgb(220,225,230);
+	font-family:'helvetica','arial';
+	line-height:25px;
+	text-align:center;
+	font-size:20px;
+	margin:0px;
+	padding:0px;
+}
+
+#score{
+	float:left;
+	height:inherit;
+	width:50px;
+	color:rgb(220,225,230);
+	font-family:'helvetica','arial';
+	line-height:25px;
+	font-size:20px;
+	text-align:center;
+	margin:0px;
+	padding:0px;
+}
+
+#infoBox{
+	position:absolute;
+	margin:0px;
+	padding:0px;
+	height:25px;
+	width:100px;
+	left:50%;
+	margin-left:-50px;
+	bottom:0px;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.buttonUI{
+	position:absolute;
+	z-index:22;
+	width:200px;
+	height:25px;
+	top:50%;
+	left:50%;
+	margin-left:-100px;
+	margin-top:-12.5px;
+	background-color:rgba(40,45,50,0.5);
+	-moz-box-shadow: 0px 0px 10px rgb(0,0,0);
+	-webkit-box-shadow: 0px 0px 10px rgb(0,0,0);
+	box-shadow: 0px 0px 10px rgb(0,0,0);
+	border-radius:4px;
+	cursor:pointer;
+	-moz-transition-timing-function:ease-in-out; 
+	-moz-transition-property:background-color; 
+	-moz-transition-duration: 0.25s; 
+	-webkit-transition-timing-function:ease-in-out; 
+	-webkit-transition-property:background-color; 
+	-webkit-transition-duration: 0.25s; 
+	-o-transition-timing-function:ease-in-out; 
+	-o-transition-property:background-color; 
+	-o-transition-duration: 0.25s; 
+	-ms-transition-timing-function:ease-in-out; 
+	-ms-transition-property:background-color; 
+	-ms-transition-duration: 0.25s; 	
+}
+
+.buttonUI:hover{
+	background-color:rgba(40,45,50,1);
+}
+
+p.selectSongUIText{
+	margin:0px;
+	font-size:20px;
+	letter-spacing:1px;
+	width:inherit;
+	height:25px;
+	line-height:28px;
+	color:#1BA1E2;
+	text-align:center;
+}
+
+p{
+	margin:0px;
+	padding:0px;
+	float:left;
+	text-align:left;
+	font-family: 'BebasNeueRegular';
+	font-size:16px;
+	line-height:16px;
+	margin-left:9px;
+	color:rgb(60,65,70);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}

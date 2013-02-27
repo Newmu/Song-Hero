@@ -2,7 +2,7 @@ var echojs = require('echojs');
 var request = require('request');
 
 var echo = echojs({
-  key: 'devKey'
+  key: process.env.ECHO_KEY;
 });
 
 function cleanString(str){
@@ -23,14 +23,14 @@ exports.getInfo = function(req, res){
 		artist: artist,
 		title: title
 	}, function (err, json) {
-		console.log(json.response);
+		// console.log(json.response);
 		var id = json.response.songs[0].id;
 		console.log(id);
 		echo('song/profile').get({
 			id: id,
 			bucket: 'audio_summary'
 		}, function (err, json) {
-			console.log(json.response);
+			// console.log(json.response);
 			var dataURL = json.response.songs[0].audio_summary.analysis_url;
 			if (dataURL != undefined){
 				request(dataURL, function (error, response, body) {

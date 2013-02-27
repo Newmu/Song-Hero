@@ -145,6 +145,7 @@ $(function () {
   document.querySelector('input[type="file"]').onchange = function(e) {
     var reader = new FileReader();
     var reader2 = new FileReader();
+
     reader.onload = function(e) {
       var res = this.result;
       if (res.slice(0,3) != 'ID3'){
@@ -181,6 +182,7 @@ $(function () {
         console.log('Error decoding file', e);
       });
     }
+    
     reader.readAsBinaryString(this.files[0]);
     reader2.readAsArrayBuffer(this.files[0]);
   };

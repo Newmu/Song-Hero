@@ -2,7 +2,7 @@ var echojs = require('echojs');
 var request = require('request');
 
 var echo = echojs({
-  key: process.env.ECHO_KEY;
+  key: process.env.ECHO_KEY
 });
 
 function cleanString(str){

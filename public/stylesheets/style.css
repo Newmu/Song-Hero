@@ -18,7 +18,7 @@ body{
 	font-family:'BebasNeueRegular';
 	line-height:25px;
 	text-align:center;
-	font-size:20px;
+	font-size:25px;
 	margin:0px;
 	padding:0px;
 }
@@ -30,7 +30,7 @@ body{
 	color:rgb(220,225,230);
 	font-family:'BebasNeueRegular';
 	line-height:25px;
-	font-size:20px;
+	font-size:25px;
 	text-align:center;
 	margin:0px;
 	padding:0px;
@@ -101,9 +101,8 @@ p{
 	float:left;
 	text-align:left;
 	font-family: 'BebasNeueRegular';
-	font-size:16px;
-	line-height:16px;
-	margin-left:9px;
+	font-size:20px;
+	line-height:20px;
 	color:rgb(60,65,70);
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;

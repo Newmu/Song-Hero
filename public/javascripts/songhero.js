@@ -1,7 +1,7 @@
 var trackInfo = [];
 var canvas, ctx, aCtx, microphone, analyser;
 var audioBuffer = [];
-var colors = ['rgb(51,153,51','rgb(240,150,9)','rgb(27,161,226)','rgb(229,20,0)','rgb(162,0,255)','rgb(216,0,155)']
+var colors = ['rgb(51,153,51)','rgb(240,150,9)','rgb(27,161,226)','rgb(229,20,0)','rgb(162,0,255)','rgb(216,0,155)']
 var codeToTrack = {'65':0,'83':1,'68':2,'70':3,'71':4,'72':5}
 var streak = 0;
 var score = 0;
@@ -51,8 +51,12 @@ var calls = 0;
 function checkReady(){
   calls += 1;
   if (calls > 1){
-    playSound();
+    displayInfo();
   }
+}
+
+function displayInfo(){
+  playSound();
 }
 
 var pixPerSec = 150;
@@ -60,6 +64,8 @@ function draw(){
   requestAnimFrame(draw,canvas);
   var time = aCtx.currentTime;
   ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.save();
+  ctx.translate(0,time*pixPerSec);
   for (var i = 0; i < trackInfo.length; i++){
     var note = trackInfo[i];
     var len = note[1]-note[0];
@@ -69,12 +75,10 @@ function draw(){
     var color = colors[track];
     var trackWidth = canvas.width/6;
     var trackX = trackWidth*track;
-    ctx.save();
-    ctx.translate(0,time*pixPerSec);
     ctx.fillStyle = color;
     ctx.fillRect(trackX,-startY+canvas.height,trackWidth,height);
-    ctx.restore();
   }
+  ctx.restore();
   ctx.fillRect(0,canvas.height-1,canvas.width,1);
 }
 
@@ -95,12 +99,23 @@ function checkAccuracy(code,time,trackInfo){
   var track = trackInfo[index][2]
   var trackPress = codeToTrack[code];
   // console.log(min,track,trackPress)
-  if ((track == trackPress) && min < 0.1){
+  if ((track == trackPress) && min < 0.125){
     return true;
   }
   else {
     return false;
   }
+}
+
+function pulse(num){
+  var el = '#track'+num.toString();
+  $(el).animate({
+    opacity:1
+  },100,function(){
+    $(el).animate({
+      opacity:0
+    },100);
+  });
 }
 
 $(function () {
@@ -128,6 +143,7 @@ $(function () {
     var code = (e.keyCode ? e.keyCode : e.which);
     var time = aCtx.currentTime;
     if (checkAccuracy(code,time,trackInfo)){
+      pulse(codeToTrack[code]);
       streak += 1;
       multiplier = Math.floor(streak,5)+1;
       correct += 1;
@@ -148,12 +164,14 @@ $(function () {
 
     reader.onload = function(e) {
       var res = this.result;
+      // console.log(res);
       if (res.slice(0,3) != 'ID3'){
         console.log('no ID3 tags');
       }
       else{
         var rawTags = res.slice(0,200).split('ÿþ');
-        if (rawTags.length > 4){
+        console.log(rawTags);
+        if (rawTags.length > 3){
           var song = cleanSong(rawTags[1]);
           var artist = cleanArtist(rawTags[2]);
           $.post('/getInfo',

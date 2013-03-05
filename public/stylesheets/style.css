@@ -6,10 +6,8 @@ body{
 }
 
 #canvas{
-	position:absolute;
-	left:50%;
-	margin-left:-225px;
-	top:0px;
+	padding:0px;
+	margin:0px;
 }
 
 #streak{

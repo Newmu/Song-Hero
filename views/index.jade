@@ -5,13 +5,22 @@ block scripts
   script(src='/javascripts/id3.js')
   script(src='/javascripts/songhero.js')
   link(rel='stylesheet', href='/fonts/bebas-neue-fontfacekit/stylesheet.css')
+  link(rel='stylesheet', href='/stylesheets/gameStyle.css')
 block content
   div(style='height: 0px;width: 0px; overflow:hidden;')
     form#imgForm
       input#selectSong(type='file',name='files')
   #selectSongUI.buttonUI
     p.selectSongUIText Select a song to play
-  canvas(id='canvas')
+  #gameWrap
+    canvas(id='canvas')
+    #trackWrap
+      #track0.track
+      #track1.track
+      #track2.track
+      #track3.track
+      #track4.track
+      #track5.track
   #infoBox
     #streak
     #score
